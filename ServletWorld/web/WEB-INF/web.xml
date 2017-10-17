@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>ServletWorld</servlet-name>
+        <servlet-class>com.ServletWorld</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletForm</servlet-name>
+        <servlet-class>com.ServletForm</servlet-class>
+    </servlet>
+    <!-- specific servlet created for handling exception error!-->
+    <servlet>
+        <servlet-name>ErrorHandler</servlet-name>
+        <servlet-class>com.ErrorHandler</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SendEmail</servlet-name>
+        <servlet-class>com.SendEmail</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletWorld</servlet-name>
+        <url-pattern>/ServletWorld</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletForm</servlet-name>
+        <url-pattern>/ServletForm</url-pattern>
+    </servlet-mapping>
+    <!-- specific servlet created for handling exception error!-->
+    <servlet-mapping>
+        <servlet-name>ErrorHandler</servlet-name>
+        <url-pattern>/ErrorHandler</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendEmail</servlet-name>
+        <url-pattern>/SendEmail</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+</web-app>
+
